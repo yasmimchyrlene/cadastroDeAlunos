@@ -17,12 +17,13 @@ class CadastroContoller {
     @PostMapping
     fun create(@RequestBody cadastro: Cadastro): ResponseEntity<Any> {
         this.cadastroService.create(cadastro)
-        return ResponseEntity(cadastro, HttpStatus.OK)
+        return ResponseEntity(cadastro, HttpStatus.CREATED)
     }
 
     @PutMapping("/{id}")
-    fun update(@PathVariable id: Long, @RequestBody cadastro: Cadastro) =
-            this.cadastroService.update(id, cadastro)
+    fun update(@PathVariable id: Long, @RequestBody cadastro: Cadastro): ResponseEntity<Any> =
+        ResponseEntity(this.cadastroService.update(id, cadastro), HttpStatus.OK)
+
 
     @GetMapping
     fun getAll(): ResponseEntity<Any> {

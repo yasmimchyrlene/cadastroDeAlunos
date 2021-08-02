@@ -13,7 +13,6 @@ data class Cadastro (
     val id: Long,
     val nome: String = "",
     val cpf: String = "",
-    val telefone: String = "",
-    val numeroIdentificacao:
+    val telefone: String ="",
 
 )
